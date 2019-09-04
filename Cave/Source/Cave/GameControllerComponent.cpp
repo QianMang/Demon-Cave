@@ -28,7 +28,11 @@ void UGameControllerComponent::BeginPlay()
 void UGameControllerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
+	FVector v;
+	FRotator r;
+	GetWorld() -> GetFirstPlayerController() -> GetPlayerViewPoint(v, r);
+	//GetWorld() -> 
+	UE_LOG(LogTemp, Warning, TEXT("%s , %s"),*v.ToString(), *r.ToString());
 	// ...
 }
 
